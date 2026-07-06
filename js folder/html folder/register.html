@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gadget Hub - Seller Login</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f8fc;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:450px;
+    background:white;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.2);
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo img{
+    width:90px;
+    max-width:100%;
+    margin-bottom:10px;
+}
+
+.logo h1{
+    color:#0B3C6D;
+    font-size:30px;
+}
+
+.logo p{
+    color:black;
+    font-size:16px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:5px;
+    color:black;
+    font-weight:bold;
+}
+
+input,
+select{
+    width:100%;
+    padding:12px;
+    border:1px solid #bbb;
+    border-radius:8px;
+    font-size:16px;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border:2px solid #0B3C6D;
+}
+
+.upload-box{
+    margin-top:15px;
+}
+
+#fileName{
+    margin-top:8px;
+    color:#0B3C6D;
+    font-size:14px;
+    word-wrap:break-word;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    margin-top:25px;
+    border:none;
+    border-radius:8px;
+    background:#0B3C6D;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#07294d;
+}
+
+.footer{
+    margin-top:18px;
+    text-align:center;
+}
+
+.footer a{
+    color:#0B3C6D;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.footer a:hover{
+    text-decoration:underline;
+}
+
+/* Tablet */
+
+@media (max-width:768px){
+
+.container{
+    max-width:90%;
+    padding:30px;
+}
+
+.logo h1{
+    font-size:28px;
+}
+
+}
+
+/* Mobile */
+
+@media (max-width:480px){
+
+body{
+    padding:15px;
+}
+
+.container{
+    max-width:100%;
+    padding:25px 20px;
+    border-radius:10px;
+}
+
+.logo img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#0B3C6D;
+    padding:15px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.logo h1{
+    color:#0B3C6D;
+    font-size:24px;
+}
+
+.logo p{
+    color:black;
+    font-size:14px;
+}
+}
+
+.logo h1{
+    font-size:24px;
+}
+
+.logo p{
+    font-size:14px;
+}
+
+label{
+    font-size:14px;
+}
+
+input,
+select{
+    padding:11px;
+    font-size:15px;
+}
+
+button{
+    padding:13px;
+    font-size:16px;
+}
+
+.footer{
+    font-size:14px;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="logo">
+
+<div class="logo">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX8oJvgi9YW8Hnobhy3jJdVE_l3exzHWFUOCiP6X4JTg&s=10" alt="Seller Login">
+    <h1>Gadget Hub</h1>
+    <p>Seller Registration</p>
+</div>
+
+</div>
+
+<form id="sellerForm">
+
+<label>Username</label>
+<input type="text" id="username" placeholder="Enter username" required>
+
+<label>Email ID</label>
+<input type="email" id="email" placeholder="Enter email" required>
+
+<label>Mobile Number</label>
+<input type="tel" id="mobile" placeholder="Enter mobile number" maxlength="10" required>
+
+<label>Password</label>
+<input type="password" id="password" placeholder="Enter password" required>
+
+<label>Select Document</label>
+
+<select id="documentType" required>
+<option value="">Choose Document</option>
+<option>License</option>
+<option>Passport</option>
+<option>Aadhar Card</option>
+<option>PAN Card</option>
+</select>
+
+<div class="upload-box">
+
+<label>Upload Document</label>
+
+<input type="file"
+id="document"
+accept=".pdf,.jpg,.jpeg,.png"
+required>
+
+<p id="fileName"></p>
+
+</div>
+
+<button type="submit">Register Seller</button>
+
+</form>
+
+<div class="footer">
+Already have an account?
+<a href="login.html">Login</a>
+</div>
+
+</div>
+
+<script>
+
+const file=document.getElementById("document");
+
+const fileName=document.getElementById("fileName");
+
+file.addEventListener("change",function(){
+
+if(this.files.length>0){
+
+fileName.innerHTML="Uploaded File : "+this.files[0].name;
+
+}
+
+});
+
+document.getElementById("sellerForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const mobile=document.getElementById("mobile").value;
+
+if(mobile.length!=10){
+
+alert("Enter a valid 10-digit mobile number.");
+
+return;
+
+}
+
+alert("Seller Registration Successful!");
+
+});
+
+</script>
+
+</body>
+</html>
