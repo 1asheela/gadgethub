@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Gadget Hub</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f8fc;
+    color:#000;
+    line-height:1.6;
+}
+
+
+
+header{
+    background:#0B3C6D;
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+}
+
+header h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:18px;
+}
+
+
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:50px 0;
+}
+
+
+
+.section{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    margin-bottom:60px;
+    flex-wrap:wrap;
+}
+
+.section img{
+    width:100%;
+    max-width:500px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.content{
+    flex:1;
+}
+
+.content h2{
+    color:#0B3C6D;
+    margin-bottom:15px;
+    font-size:32px;
+}
+
+.content p{
+    font-size:17px;
+    text-align:justify;
+}
+
+
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    text-align:center;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#0B3C6D;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:15px;
+}
+
+
+
+footer{
+    background:#0B3C6D;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+
+
+@media(max-width:768px){
+
+.section{
+    flex-direction:column;
+    text-align:center;
+}
+
+.content p{
+    text-align:center;
+}
+
+header h1{
+    font-size:32px;
+}
+
+.content h2{
+    font-size:28px;
+}
+
+}
+
+@media(max-width:480px){
+
+header{
+    padding:40px 15px;
+}
+
+header h1{
+    font-size:26px;
+}
+
+header p{
+    font-size:16px;
+}
+
+.content h2{
+    font-size:24px;
+}
+
+.content p{
+    font-size:15px;
+}
+
+.card{
+    padding:20px;
+}
+
+}
+.services,
+.stats,
+.values{
+    margin-top:60px;
+    text-align:center;
+}
+
+.services h2,
+.stats h2,
+.values h2{
+    color:#0B3C6D;
+    margin-bottom:30px;
+    font-size:32px;
+}
+
+.service-container,
+.stats-container,
+.value-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.service-box,
+.stat-box,
+.value-box{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.service-box:hover,
+.stat-box:hover,
+.value-box:hover{
+    transform:translateY(-8px);
+}
+
+.service-box h3,
+.value-box h3{
+    color:#0B3C6D;
+    margin-bottom:10px;
+}
+
+.stat-box h1{
+    color:#0B3C6D;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.service-box p,
+.value-box p,
+.stat-box p{
+    color:#444;
+    font-size:15px;
+    line-height:1.6;
+}
+
+@media(max-width:768px){
+
+.services h2,
+.stats h2,
+.values h2{
+    font-size:28px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>About Gadget Hub</h1>
+
+<p>Your Trusted Destination for the Latest Electronics</p>
+
+</header>
+
+<div class="container">
+
+<div class="section">
+
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900" alt="Technology">
+
+<div class="content">
+
+<h2>Who We Are</h2>
+
+<p>
+Gadget Hub is an online electronics shopping platform dedicated to providing customers with high-quality gadgets at affordable prices. We offer a wide range of products, including smartphones, laptops, smartwatches, headphones, gaming accessories, cameras, tablets, and many more. Our mission is to make technology accessible to everyone through a secure, reliable, and user-friendly shopping experience.
+</p>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="content">
+
+<h2>Our Mission</h2>
+
+<p>
+Our mission is to deliver genuine electronic products from trusted brands while providing excellent customer service. We focus on quality, affordability, and fast delivery so that every customer enjoys a smooth and satisfying shopping experience with Gadget Hub.
+</p>
+
+</div>
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900" alt="Mission">
+
+</div>
+
+<h2 style="text-align:center;color:#0B3C6D;">Why Choose Us?</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Quality Products</h3>
+<p>We offer authentic electronic gadgets from trusted and well-known brands.</p>
+</div>
+
+<div class="card">
+<h3>Secure Shopping</h3>
+<p>Your personal information and payments are protected with secure technology.</p>
+</div>
+
+<div class="card">
+<h3>Fast Delivery</h3>
+<p>We ensure quick and reliable delivery to customers across different locations.</p>
+</div>
+
+<div class="card">
+<h3>24/7 Support</h3>
+<p>Our customer support team is always ready to assist you whenever you need help.</p>
+</div>
+
+</div>
+
+</div>
+<section class="services">
+
+<h2>Our Services</h2>
+
+<div class="service-container">
+
+<div class="service-box">
+<h3>🚚 Fast Delivery</h3>
+<p>We provide quick and reliable delivery services to ensure your favorite gadgets reach your doorstep safely and on time.</p>
+</div>
+
+<div class="service-box">
+<h3>💳 Secure Payments</h3>
+<p>Shop with confidence using our secure payment gateway supporting UPI, Credit Cards, Debit Cards, Net Banking, and Cash on Delivery.</p>
+</div>
+
+<div class="service-box">
+<h3>🔄 Easy Returns</h3>
+<p>We offer a simple return and replacement process for eligible products to ensure complete customer satisfaction.</p>
+</div>
+
+<div class="service-box">
+<h3>🎧 Customer Support</h3>
+<p>Our dedicated support team is available to assist customers with product inquiries, order tracking, and technical support.</p>
+</div>
+
+</div>
+
+</section>
+<section class="stats">
+
+<h2>Our Achievements</h2>
+
+<div class="stats-container">
+
+<div class="stat-box">
+<h1>10K+</h1>
+<p>Happy Customers</p>
+</div>
+
+<div class="stat-box">
+<h1>500+</h1>
+<p>Electronic Products</p>
+</div>
+
+<div class="stat-box">
+<h1>100+</h1>
+<p>Trusted Brands</p>
+</div>
+
+<div class="stat-box">
+<h1>24/7</h1>
+<p>Customer Support</p>
+</div>
+
+</div>
+
+</section>
+<section class="values">
+
+<h2>Our Core Values</h2>
+
+<div class="value-container">
+
+<div class="value-box">
+<h3>Integrity</h3>
+<p>We believe in honesty, transparency, and ethical business practices in every transaction.</p>
+</div>
+
+<div class="value-box">
+<h3>Innovation</h3>
+<p>We continuously update our platform with the latest technology and modern shopping features.</p>
+</div>
+
+<div class="value-box">
+<h3>Quality</h3>
+<p>Every product listed on Gadget Hub is carefully selected to meet high-quality standards.</p>
+</div>
+
+<div class="value-box">
+<h3>Customer First</h3>
+<p>Customer satisfaction is our highest priority, and we strive to exceed expectations every day.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>&copy; 2026 Gadget Hub. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>
+

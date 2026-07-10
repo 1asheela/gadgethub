@@ -1,0 +1,266 @@
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+/* Make images responsive */
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+/* Hero Section */
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.hero-content,
+.hero-image{
+    flex:1 1 450px;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:15px;
+}
+
+/* Product Grid */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+/* Footer */
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+/* Newsletter */
+.newsletter div{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.newsletter input{
+    flex:1;
+    min-width:250px;
+}
+
+.newsletter button{
+    min-width:150px;
+}
+
+/* Header */
+.top-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.search-box{
+    flex:1;
+    display:flex;
+    min-width:250px;
+}
+
+.search-box input{
+    width:100%;
+}
+
+/* Navigation */
+.navbar{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+/* ===========================
+   TABLETS
+=========================== */
+
+@media(max-width:992px){
+
+.hero{
+    flex-direction:column-reverse;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.buttons{
+    justify-content:center;
+}
+
+.search-box{
+    width:100%;
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.top-header{
+    flex-direction:column;
+    text-align:center;
+}
+
+.logo{
+    font-size:30px;
+}
+
+.icons{
+    justify-content:center;
+}
+
+.navbar{
+    flex-direction:column;
+}
+
+.navbar a{
+    width:100%;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.hero{
+    padding:40px 20px;
+}
+
+.hero h1{
+    font-size:34px;
+}
+
+.description{
+    font-size:16px;
+}
+
+.buttons{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.primary,
+.secondary{
+    width:100%;
+}
+
+.products{
+    grid-template-columns:1fr;
+}
+
+.review-track{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.newsletter input,
+.newsletter button{
+    width:100%;
+}
+
+.footer-container{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.social-links{
+    justify-content:center;
+}
+
+}
+
+/* ===========================
+   SMALL MOBILE
+=========================== */
+
+@media(max-width:480px){
+
+body{
+    overflow-x:hidden;
+}
+
+.hero h1{
+    font-size:28px;
+}
+
+.hero p{
+    font-size:15px;
+}
+
+.collection h2,
+.reviews h2,
+.newsletter h2{
+    font-size:28px;
+}
+
+.card{
+    width:100%;
+}
+
+.card img{
+    height:220px;
+    object-fit:cover;
+}
+
+.logo{
+    font-size:26px;
+}
+
+.icons{
+    gap:15px;
+}
+
+.search-box input{
+    font-size:14px;
+}
+
+button{
+    font-size:15px;
+}
+
+}
+
+/* ===========================
+   EXTRA SMALL DEVICES
+=========================== */
+
+@media(max-width:360px){
+
+.hero h1{
+    font-size:24px;
+}
+
+.logo{
+    font-size:22px;
+}
+
+.navbar a{
+    font-size:14px;
+}
+
+.collection,
+.reviews,
+.newsletter{
+    padding:40px 15px;
+}
+
+}
