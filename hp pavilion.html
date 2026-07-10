@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>HP Pavilion 15</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        /* HEADER */
+
+        header {
+
+            background: #2874f0;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .logo {
+
+            font-size: 28px;
+            font-weight: bold;
+
+        }
+
+        .logo span {
+
+            color: yellow;
+
+        }
+
+        .icons {
+
+            display: flex;
+            gap: 25px;
+
+        }
+
+        .icons a {
+
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+
+        }
+
+        .icons a:hover {
+
+            color: yellow;
+
+        }
+
+        /* MAIN */
+
+        .container {
+
+            width: 95%;
+            margin: 30px auto;
+            display: flex;
+            gap: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
+
+        }
+
+        /* LEFT */
+
+        .left {
+
+            width: 40%;
+
+        }
+
+        #mainImage {
+
+            width: 100%;
+            height: 420px;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: white;
+
+        }
+
+        .gallery {
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+
+        }
+
+        .gallery img {
+
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 8px;
+            transition: .3s;
+
+        }
+
+        .gallery img:hover {
+
+            border-color: #2874f0;
+            transform: scale(1.05);
+
+        }
+
+        /* RIGHT */
+
+        .right {
+
+            width: 60%;
+
+        }
+
+        .right h1 {
+
+            font-size: 34px;
+            color: #222;
+
+        }
+
+        .rating {
+
+            margin: 15px 0;
+            font-size: 20px;
+            color: #ff9800;
+
+        }
+
+        .price {
+
+            font-size: 36px;
+            font-weight: bold;
+            color: green;
+            margin-top: 10px;
+
+        }
+
+        .old {
+
+            text-decoration: line-through;
+            color: gray;
+            font-size: 22px;
+            margin-left: 10px;
+
+        }
+
+        .offer {
+
+            color: red;
+            font-size: 22px;
+            margin-left: 10px;
+
+        }
+
+        .stock {
+
+            margin: 15px 0;
+            color: green;
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+
+        .qty {
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+
+        }
+
+        .qty button {
+
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: #2874f0;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            border-radius: 50%;
+
+        }
+
+        .qty span {
+
+            font-size: 22px;
+            font-weight: bold;
+
+        }
+
+        .btns {
+
+            margin-top: 25px;
+
+        }
+
+        .btn {
+
+            padding: 15px 25px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+            margin-right: 15px;
+
+        }
+
+        .cart {
+
+            background: #ff9800;
+
+        }
+
+        .wish {
+
+            background: #e91e63;
+
+        }
+
+        .buy {
+
+            background: green;
+
+        }
+
+        /* INFORMATION SECTIONS */
+
+        .section {
+
+            background: white;
+            width: 95%;
+            margin: 25px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+
+        }
+
+        .section h2 {
+
+            color: #2874f0;
+            margin-bottom: 15px;
+
+        }
+
+        .section p {
+
+            font-size: 17px;
+            line-height: 1.8;
+
+        }
+
+        table {
+
+            width: 100%;
+            border-collapse: collapse;
+
+        }
+
+        table td {
+
+            border: 1px solid #ddd;
+            padding: 12px;
+
+        }
+
+        .related {
+
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 20px;
+
+        }
+
+        .related div {
+
+            text-align: center;
+
+        }
+
+        .related img {
+
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            background: white;
+
+        }
+
+        .related p {
+
+            margin-top: 10px;
+            font-weight: bold;
+
+        }
+
+        footer {
+
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+
+        }
+
+        @media(max-width:900px) {
+
+            .container {
+
+                flex-direction: column;
+
+            }
+
+            .left,
+            .right {
+
+                width: 100%;
+
+            }
+
+            .related {
+
+                flex-direction: column;
+                align-items: center;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    
+
+    <div class="container">
+
+        <div class="left">
+
+            <img id="mainImage" src="Images/hp pavilion.jpg">
+
+            <div class="gallery">
+
+                <img src=Images/hp pavilion.jpg" onclick="changeImage(this.src)">
+
+                <img src="Images/hp pavilion 2.jpg" onclick="changeImage(this.src)">
+
+                <img src="Images/hp pavilion 3.jpg" onclick="changeImage(this.src)">
+
+            </div>
+
+        </div>
+
+        <div class="right">
+
+            <h1>HP Pavilion 15 Laptop</h1>
+
+            <div class="rating">
+
+                ⭐⭐⭐⭐⭐ 4.8 (2,345 Ratings)
+
+            </div>
+
+            <div class="price">
+
+                ₹64,999
+
+                <span class="old">₹74,999</span>
+
+                <span class="offer">13% OFF</span>
+
+            </div>
+
+            <div class="stock">
+
+                ✔ In Stock
+
+            </div>
+
+            <p>
+
+                HP Pavilion 15 with Intel Core i7 Processor,
+                16GB RAM, 512GB SSD,
+                15.6-inch Full HD Display,
+                Windows 11,
+                Backlit Keyboard and Fast Charging.
+
+            </p>
+
+            <div class="qty">
+
+                <button onclick="minus()">−</button>
+
+                <span id="qty">1</span>
+
+                <button onclick="plus()">+</button>
+
+            </div>
+
+            <div class="btns">
+
+                <button class="btn cart" onclick="addCart()">
+
+                    🛒 Add to Cart
+
+                </button>
+
+                <button class="btn wish" onclick="addWish()">
+
+                    ❤️ Add to Wishlist
+
+                </button>
+
+                <button class="btn buy" onclick="buyNow()">
+
+                    ⚡ Buy Now
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- PRODUCT DESCRIPTION -->
+
+    <div class="section">
+
+        <h2>📄 Product Description</h2>
+
+        <p>
+
+            The HP Pavilion 15 is a premium laptop designed for students,
+            professionals, programmers, and creators.
+
+            Powered by the latest Intel Core i7 processor,
+            16GB RAM, and a high-speed 512GB SSD,
+            it delivers smooth multitasking and excellent performance.
+
+            The 15.6-inch Full HD IPS display provides vibrant colors,
+            while the backlit keyboard and premium design make it perfect
+            for everyday productivity, coding, entertainment, and gaming.
+
+        </p>
+
+    </div>
+
+
+    <!-- SPECIFICATIONS -->
+
+    <div class="section">
+
+        <h2>⚙️ Specifications</h2>
+
+        <table>
+
+            <tr>
+                <td>Brand</td>
+                <td>HP</td>
+            </tr>
+
+            <tr>
+                <td>Model</td>
+                <td>HP Pavilion 15</td>
+            </tr>
+
+            <tr>
+                <td>Processor</td>
+                <td>Intel Core i7 13th Gen</td>
+            </tr>
+
+            <tr>
+                <td>RAM</td>
+                <td>16GB DDR4</td>
+            </tr>
+
+            <tr>
+                <td>Storage</td>
+                <td>512GB SSD</td>
+            </tr>
+
+            <tr>
+                <td>Display</td>
+                <td>15.6" Full HD IPS</td>
+            </tr>
+
+            <tr>
+                <td>Graphics</td>
+                <td>Intel Iris Xe Graphics</td>
+            </tr>
+
+            <tr>
+                <td>Operating System</td>
+                <td>Windows 11 Home</td>
+            </tr>
+
+            <tr>
+                <td>Battery</td>
+                <td>Up to 8 Hours</td>
+            </tr>
+
+            <tr>
+                <td>Weight</td>
+                <td>1.75 kg</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- DELIVERY -->
+
+    <div class="section">
+
+        <h2>🚚 Delivery Details</h2>
+
+        <p>
+
+            ✅ Free Delivery Available<br><br>
+
+            ✅ Cash on Delivery Available<br><br>
+
+            ✅ 7 Days Replacement Policy<br><br>
+
+            ✅ 1 Year HP Warranty<br><br>
+
+            Estimated Delivery:
+            <b>2–4 Business Days</b>
+
+        </p>
+
+    </div>
+
+
+    <!-- REVIEWS -->
+
+    <div class="section">
+
+        <h2>⭐ Customer Reviews</h2>
+
+        <p>
+
+            ⭐⭐⭐⭐⭐
+            Excellent laptop for coding and office work.
+            Very fast SSD and great display.
+
+            <br><br>
+
+            ⭐⭐⭐⭐⭐
+            Battery backup is very good and the keyboard is comfortable.
+
+            <br><br>
+
+            ⭐⭐⭐⭐☆
+            Great value for money.
+            Performance is smooth even with multiple applications.
+
+        </p>
+
+    </div>
+
+
+
+
+    <footer>
+
+        © 2026 FreshKart | Laptop Store | All Rights Reserved
+
+    </footer>
+
+    <script>
+        let quantity = 1;
+
+// Change Main Image
+function changeImage(image){
+
+    document.getElementById("mainImage").src = image;
+
+}
+
+// Increase Quantity
+function plus(){
+
+    quantity++;
+
+    document.getElementById("qty").innerHTML = quantity;
+
+}
+
+// Decrease Quantity
+function minus(){
+
+    if(quantity > 1){
+
+        quantity--;
+
+        document.getElementById("qty").innerHTML = quantity;
+
+    }
+
+}
+
+// Add To Cart
+function addCart(){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+
+        name: "HP Pavilion 15",
+        price: 64999,
+        quantity: quantity,
+        image: "image/hppavilion15.jpg"
+
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("✅ HP Pavilion 15 added to Cart!");
+
+}
+
+// Add To Wishlist
+function addWish(){
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    wishlist.push({
+
+        name: "HP Pavilion 15",
+        price: 64999,
+        image: "image/hppavilion15.jpg"
+
+    });
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+    alert("❤️ HP Pavilion 15 added to Wishlist!");
+
+}
+
+// Buy Now
+function buyNow(){
+
+    addCart();
+
+    window.location.href = "Checkout.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

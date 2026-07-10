@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lenovo Tab P12</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f4f6f9;
+}
+
+header{
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+.container{
+    display:flex;
+    gap:40px;
+    padding:30px;
+}
+
+.left{
+    width:40%;
+}
+
+#mainImage{
+    width:100%;
+    height:420px;
+    object-fit:contain;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.gallery{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.gallery img{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+    border:2px solid #ddd;
+    border-radius:8px;
+    cursor:pointer;
+    background:white;
+}
+
+.gallery img:hover{
+    border-color:#0b3d91;
+}
+
+.right{
+    width:60%;
+}
+
+.right h1{
+    color:#0b3d91;
+}
+
+.rating{
+    color:#ff9800;
+    font-size:20px;
+}
+
+.price{
+    color:green;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.oldprice{
+    color:gray;
+    text-decoration:line-through;
+    font-size:18px;
+}
+
+.discount{
+    color:red;
+    font-weight:bold;
+}
+
+.qty{
+    margin:20px 0;
+}
+
+.qty button{
+    width:35px;
+    height:35px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.qty span{
+    margin:0 15px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    color:white;
+    margin:8px;
+}
+
+.cart{
+    background:#ff9800;
+}
+
+.wish{
+    background:#e91e63;
+}
+
+.buy{
+    background:#28a745;
+}
+
+.section{
+    background:white;
+    margin:25px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+.related{
+    display:flex;
+    gap:20px;
+}
+
+.related div{
+    width:180px;
+    text-align:center;
+}
+
+.related img{
+    width:150px;
+    height:150px;
+    object-fit:contain;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Lenovo Tab P12</h1>
+</header>
+
+<div class="container">
+
+<div class="left">
+
+<img id="mainImage" src="Images/lenovo tab12.jpg">
+
+<div class="gallery">
+<img src="Images/lenovotabp12.jpg" onclick="changeImage(this.src)">
+<img src="Images/lenovotabp12 2.jpg" onclick="changeImage(this.src)">
+<img src="Images/lenovotabp12 3.jpg" onclick="changeImage(this.src)">
+</div>
+
+</div>
+
+<div class="right">
+
+<h1>Lenovo Tab P12 (8GB RAM, 256GB)</h1>
+
+<div class="rating">
+⭐⭐⭐⭐⭐ (4.6/5)
+</div>
+
+<p class="price">
+₹32,999
+<span class="oldprice">₹36,999</span>
+<span class="discount">11% OFF</span>
+</p>
+
+<p>
+The Lenovo Tab P12 features a large 12.7-inch 3K display, MediaTek Dimensity processor, Dolby Atmos speakers, and a long-lasting battery for work, entertainment, and online learning.
+</p>
+
+<div class="qty">
+
+<h3>Quantity</h3>
+
+<button onclick="minus()">-</button>
+
+<span id="qty">1</span>
+
+<button onclick="plus()">+</button>
+
+</div>
+
+<button class="cart" onclick="addCart()">🛒 Add to Cart</button>
+
+<button class="wish" onclick="addWish()">❤️ Add to Wishlist</button>
+
+<button class="buy">⚡ Buy Now</button>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Description</h2>
+
+<p>
+The Lenovo Tab P12 offers an immersive entertainment experience with its 12.7-inch 3K display, quad JBL speakers with Dolby Atmos, and a powerful processor. It is ideal for students, professionals, gaming, streaming, and productivity.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>Specifications</h2>
+
+<table>
+
+<tr><td>Brand</td><td>Lenovo</td></tr>
+<tr><td>Model</td><td>Tab P12</td></tr>
+<tr><td>Display</td><td>12.7-inch 3K LCD</td></tr>
+<tr><td>Processor</td><td>MediaTek Dimensity 7050</td></tr>
+<tr><td>RAM</td><td>8GB</td></tr>
+<tr><td>Storage</td><td>256GB</td></tr>
+<tr><td>Battery</td><td>10200mAh</td></tr>
+<tr><td>Operating System</td><td>Android 14</td></tr>
+
+</table>
+
+</div>
+
+<div class="section">
+
+<h2>Delivery Details</h2>
+
+<p>
+✔ Free Delivery within 2 Days<br><br>
+✔ Cash on Delivery Available<br><br>
+✔ 7-Day Replacement Policy
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>Customer Reviews</h2>
+
+⭐⭐⭐⭐⭐ Excellent display and sound quality.<br><br>
+
+⭐⭐⭐⭐⭐ Perfect for study and entertainment.<br><br>
+
+⭐⭐⭐⭐ Great battery backup.
+
+</div>
+
+
+<script>
+
+function changeImage(img){
+    document.getElementById("mainImage").src=img;
+}
+
+let quantity=1;
+
+function plus(){
+    quantity++;
+    document.getElementById("qty").innerHTML=quantity;
+}
+
+function minus(){
+    if(quantity>1){
+        quantity--;
+        document.getElementById("qty").innerHTML=quantity;
+    }
+}
+
+function addCart(){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+cart.push({
+name:"Lenovo Tab P12",
+price:32999,
+quantity:quantity
+});
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+alert("Lenovo Tab P12 added to Cart");
+
+}
+
+function addWish(){
+
+let wishlist=JSON.parse(localStorage.getItem("wishlist"))||[];
+
+wishlist.push({
+name:"Lenovo Tab P12",
+price:32999
+});
+
+localStorage.setItem("wishlist",JSON.stringify(wishlist));
+
+alert("Lenovo Tab P12 added to Wishlist");
+
+}
+
+</script>
+
+</body>
+</html>

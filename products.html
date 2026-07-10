@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>ElectroMart Products</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#eef3ff;
+}
+
+/* HEADER */
+
+header{
+background:#0A1F44;
+color:white;
+padding:18px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+box-shadow:0 3px 8px rgba(0,0,0,.3);
+}
+
+.search{
+margin:25px;
+text-align:center;
+}
+
+.search input{
+width:420px;
+padding:14px;
+border-radius:30px;
+border:2px solid #0A1F44;
+font-size:16px;
+outline:none;
+}
+
+/* CATEGORY */
+
+.category{
+margin:30px;
+}
+
+.category h2{
+background:#0A1F44;
+color:white;
+padding:12px;
+border-radius:8px;
+}
+
+/* PRODUCTS */
+
+.products{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+margin-top:20px;
+}
+
+.card{
+width:230px;
+background:white;
+border-radius:12px;
+padding:15px;
+text-align:center;
+box-shadow:0 4px 12px rgba(0,0,0,.15);
+transition:.3s;
+position:relative;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:170px;
+height:170px;
+object-fit:contain;
+}
+
+.discount{
+position:absolute;
+top:10px;
+left:10px;
+background:red;
+color:white;
+padding:4px 8px;
+font-size:13px;
+border-radius:5px;
+}
+
+.rating{
+color:orange;
+font-size:18px;
+margin:8px 0;
+}
+
+.price{
+font-size:22px;
+font-weight:bold;
+color:#0A1F44;
+}
+
+.old{
+text-decoration:line-through;
+color:gray;
+font-size:15px;
+}
+
+button{
+width:100%;
+padding:10px;
+margin-top:8px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:15px;
+}
+
+.wish{
+background:#E91E63;
+color:white;
+}
+
+.cart{
+background:#1565C0;
+color:white;
+}
+
+button:hover{
+opacity:.9;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+⚡ ElectroMart Products
+
+</header>
+
+<div class="search">
+
+<input
+type="text"
+id="searchBox"
+placeholder="Search Mobiles, Laptops, Tablets..."
+onkeyup="searchProduct()">
+
+</div>
+<!-- MOBILE PHONES -->
+
+  <div class="category">
+
+<h2>📱 Mobile Phones</h2>
+
+<div class="products">
+
+<div class="card">
+<span class="discount">10% OFF</span>
+<img src="Images/iphone15.jpg" alt="iPhone 15">
+<h3>Apple iPhone 15</h3>
+<div class="rating">★★★★★</div>
+<p class="old">₹89,999</p>
+<p class="price">₹79,999</p>
+<button class="wish" onclick="addWishlist('Apple iPhone 15',79999)">❤️ Wishlist</button>
+<button class="cart" onclick="addToCart('Apple iPhone 15',79999)">🛒 Add Cart</button>
+<button onclick="window.location.href='iphone15.html'">View Details</button>
+</div>
+
+
+<div class="card">
+<span class="discount">12% OFF</span>
+<img src="Images/galaxys24.jpg" alt="Samsung Galaxy S24">
+<h3>Samsung Galaxy S24</h3>
+<div class="rating">★★★★★</div>
+<p class="old">₹84,999</p>
+<p class="price">₹74,999</p>
+<button class="wish" onclick="addWishlist('Samsung Galaxy S24',74999)">❤️ Wishlist</button>
+<button class="cart" onclick="addToCart('Samsung Galaxy S24',74999)">🛒 Add Cart</button>
+
+<button onclick="window.location.href='galaxys24.html'">View Details</button>
+</div>
+  
+
+
+
+<div class="card">
+<span class="discount">8% OFF</span>
+<img src="Images/oneplus13.jpg" alt="OnePlus 13">
+<h3>OnePlus 13</h3>
+<div class="rating">★★★★☆</div>
+<p class="old">₹75,999</p>
+<p class="price">₹69,999</p>
+<button class="wish" onclick="addWishlist('OnePlus 13',69999)">❤️ Wishlist</button>
+<button class="cart" onclick="addToCart('OnePlus 13',69999)">🛒 Add Cart</button>
+<button onclick="window.location.href='oneplus13.html'">View Details</button>
+</div>
+
+<div class="card">
+<span class="discount">15% OFF</span>
+<img src="Images/vivox200.jpg" alt="Vivo X200">
+<h3>Vivo X200</h3>
+<div class="rating">★★★★☆</div>
+<p class="old">₹69,999</p>
+<p class="price">₹59,999</p>
+<button class="wish" onclick="addWishlist('Vivo X200',59999)">❤️ Wishlist</button>
+<button class="cart" onclick="addToCart('Vivo X200',59999)">🛒 Add Cart</button>
+<button onclick="window.location.href='vivox200.html'">View Details</button>
+</div>
+
+<div class="card">
+<span class="discount">18% OFF</span>
+<img src="Images/realmegt7.jpg" alt="Realme GT 7">
+<h3>Realme GT 7</h3>
+<div class="rating">★★★★☆</div>
+<p class="old">₹54,999</p>
+<p class="price">₹44,999</p>
+<button class="wish" onclick="addWishlist('Realme GT 7',44999)">❤️ Wishlist</button>
+<button class="cart" onclick="addToCart('Realme GT 7',44999)">🛒 Add Cart</button>
+<button onclick="window.location.href='realmegt7.html'">View Details</button>
+</div>
+
+</div>
+
+</div>
+<!-- MOBILE ACCESSORIES -->
+
+<div class="category">
+
+    <h2>🎧 Mobile Accessories</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <span class="discount">20% OFF</span>
+            <img src="Images/typeccable.jpg" alt="typeccable">
+            <h3>Type C Cable</h3>
+            <div class="rating">★★★★★</div>
+            <p class="old">₹3,999</p>
+            <p class="price">₹3,199</p>
+            <button class="wish" onclick="addWishlist('Type C Cable',3199)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Type C Cable',3199)">🛒 Add Cart</button>
+            <button onclick="window.location.href='typeccable.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">15% OFF</span>
+            <img src="Images/applecharger.jpg" alt="65W Fast Charger">
+            <h3> Apple 65W Fast Charger</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹1,999</p>
+            <p class="price">₹1,699</p>
+            <button class="wish" onclick="addWishlist('Apple 65W Fast Charger',1699)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Apple 65W Fast Charger',1699)">🛒 Add Cart</button>
+            <button onclick="window.location.href='applecharger.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">25% OFF</span>
+            <img src="Images/powerbank.jpg" alt="Power Bank">
+            <h3>20000mAh Power Bank</h3>
+            <div class="rating">★★★★★</div>
+            <p class="old">₹2,999</p>
+            <p class="price">₹2,249</p>
+            <button class="wish" onclick="addWishlist('20000mAh Power Bank',2249)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('20000mAh Power Bank',2249)">🛒 Add Cart</button>
+            <button onclick="window.location.href='powerbank.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">30% OFF</span>
+            <img src="Images/mobilecase.jpg" alt="Phone Case">
+            <h3>Premium Phone Case</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹999</p>
+            <p class="price">₹699</p>
+            <button class="wish" onclick="addWishlist('Premium Phone Case',699)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Premium Phone Case',699)">🛒 Add Cart</button>
+            <button onclick="window.location.href='mobilecase.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">35% OFF</span>
+            <img src="Images/screenguard.jpg" alt="Screen Protector">
+            <h3>Tempered Glass</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹499</p>
+            <p class="price">₹299</p>
+            <button class="wish" onclick="addWishlist('Tempered Glass',299)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Tempered Glass',299)">🛒 Add Cart</button>
+            <button onclick="window.location.href='screenguard.html'">View Details</button>
+        </div>
+
+
+    </div>
+
+</div>
+<!-- TABLETS -->
+
+<div class="category">
+
+    <h2>📟 Tablets</h2>
+
+    <div class="category">
+
+    <h2>📟 Tablets</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <span class="discount">10% OFF</span>
+            <img src="Images/ipad airm m3.jpg" alt="iPad Air">
+            <h3>Apple iPad Air</h3>
+            <div class="rating">★★★★★</div>
+            <p class="old">₹64,999</p>
+            <p class="price">₹58,499</p>
+            <button class="wish" onclick="addWishlist('Apple iPad Air',58499)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Apple iPad Air',58499)">🛒 Add Cart</button>
+            <button onclick="window.location.href='ipadairm3.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">12% OFF</span>
+            <img src="Images/galaxytab10plus.jpg" alt="Samsung Galaxy Tab S10">
+            <h3>Samsung Galaxy Tab S10</h3>
+            <div class="rating">★★★★★</div>
+            <p class="old">₹72,999</p>
+            <p class="price">₹64,199</p>
+            <button class="wish" onclick="addWishlist('Samsung Galaxy Tab S10',64199)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Samsung Galaxy Tab S10',64199)">🛒 Add Cart</button>
+            <button onclick="window.location.href='galaxytab10plus.html'">View Details</button>
+            
+    </div>
+        </div>
+
+        <div class="card">
+            <span class="discount">15% OFF</span>
+            <img src="Images/onepluspad2.jpg" alt="OnePlus Pad 2">
+            <h3>OnePlus Pad 2</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹42,999</p>
+            <p class="price">₹36,499</p>
+            <button class="wish" onclick="addWishlist('OnePlus Pad 2',36499)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('OnePlus Pad 2',36499)">🛒 Add Cart</button>
+            <button onclick="window.location.href='onepluspad2.html'">View Details</button>
+    </div>
+        </div>
+
+        <div class="card">
+            <span class="discount">18% OFF</span>
+            <img src="Images/lenovo tab12.jpg" alt="Lenovo Tab P12">
+            <h3>Lenovo Tab P12</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹34,999</p>
+            <p class="price">₹28,699</p>
+            <button class="wish" onclick="addWishlist('Lenovo Tab P12',28699)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Lenovo Tab P12',28699)">🛒 Add Cart</button>
+            <button onclick="window.location.href='lenovotab12.html'">View Details</button>
+    </div>
+        </div>
+
+        <div class="card">
+            <span class="discount">20% OFF</span>
+            <img src="Images/xiaomipad.jpg" alt="Xiaomi Pad 7">
+            <h3>Xiaomi Pad 7</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹32,999</p>
+            <p class="price">₹26,399</p>
+            <button class="wish" onclick="addWishlist('Xiaomi Pad 7',26399)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Xiaomi Pad 7',26399)">🛒 Add Cart</button>
+            <button onclick="window.location.href='xiaomipad.html'">View Details</button>
+    </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- LAPTOPS -->
+
+<div class="category">
+
+    <h2>💻 Laptops</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <span class="discount">8% OFF</span>
+            <img src="Images/macbookairm4.jpg" alt="MacBook Air M4">
+            <h3>Apple MacBook Air M4</h3>
+            <div class="rating">★★★★★</div>
+            <p class="old">₹1,19,900</p>
+            <p class="price">₹1,09,900</p>
+            <button class="wish" onclick="addWishlist('Apple MacBook Air M4',109900)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Apple MacBook Air M4',109900)">🛒 Add Cart</button>
+            <button onclick="window.location.href='Macbook air M4.html'">View Details</button>
+
+        </div>
+
+        <div class="card">
+            <span class="discount">12% OFF</span>
+            <img src="Images/dellinspiron.jpg" alt="Dell Inspiron 15">
+            <h3>Dell Inspiron 15</h3>
+            <div class="rating">★★★★★</div>
+            <p class="old">₹74,999</p>
+            <p class="price">₹65,999</p>
+            <button class="wish" onclick="addWishlist('Dell Inspiron 15',65999)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Dell Inspiron 15',65999)">🛒 Add Cart</button>
+            <button onclick="window.location.href='dellinspiron 15.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">15% OFF</span>
+            <img src="Images/hp pavilion.jpg" alt="HP Pavilion">
+            <h3>HP Pavilion 15</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹79,999</p>
+            <p class="price">₹67,999</p>
+            <button class="wish" onclick="addWishlist('HP Pavilion 15',67999)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('HP Pavilion 15',67999)">🛒 Add Cart</button>
+         <button onclick="window.location.href='hp pavilion.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">10% OFF</span>
+            <img src="Images/lenovothink.jpg" alt="Lenovo ThinkPad">
+            <h3>Lenovo ThinkPad E14</h3>
+            <div class="rating">★★★★★</div>
+            <p class="old">₹84,999</p>
+            <p class="price">₹76,499</p>
+            <button class="wish" onclick="addWishlist('Lenovo ThinkPad E14',76499)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Lenovo ThinkPad E14',76499)">🛒 Add Cart</button>
+            <button onclick="window.location.href='lenovothinkpad.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">18% OFF</span>
+            <img src="Images/asusvivobook15.jpg" alt="ASUS Vivobook">
+            <h3>ASUS Vivobook 15</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹69,999</p>
+            <p class="price">₹57,499</p>
+            <button class="wish" onclick="addWishlist('ASUS Vivobook 15',57499)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('ASUS Vivobook 15',57499)">🛒 Add Cart</button>
+            <button onclick="window.location.href='ASUS vivobook 15.html'">View Details</button>
+        </div>
+
+    </div>
+
+</div>
+<!-- LAPTOP ACCESSORIES -->
+
+<div class="category">
+
+    <h2>⌨ Laptop Accessories</h2>
+
+   <div class="products">
+
+    <div class="card">
+         <span class="discount">10% OFF</span>
+        <img src="Images/Wireless Mouse.jpg">
+        <h3>Wireless Mouse</h3>
+         <div class="rating">★★★★☆</div>
+        <p>₹899</p>
+        <button class="wish" onclick="addWishlist('Wireless Mouse',899)">❤️ Wishlist</button>
+        <button class="cart" onclick="addToCart('Wireless Mouse',899)">🛒 Add Cart</button>
+        <button onclick="window.location.href='Wireless Mouse.html'">View Details</button>
+    </div>
+
+    <div class="card">
+         <span class="discount">10% OFF</span>
+        <img src="Images/Mechanical Keyboard.jpg">
+        <h3>Mechanical Keyboard</h3>
+         <div class="rating">★★★★☆</div>
+        <p>₹2,399</p>
+        <button class="wish" onclick="addWishlist('Mechanical Keyboard',2399)">❤️ Wishlist</button>
+        <button class="cart" onclick="addToCart('Mechanical Keyboard',2399)">🛒 Add Cart</button>
+       <button onclick="window.location.href='Mechanical Keyboard.html'">View Details</button> 
+    </div>
+
+    <div class="card">
+         <span class="discount">10% OFF</span>
+        <img src="Images/Laptop Backpack.jpg">
+        <h3>Laptop Backpack</h3>
+         <div class="rating">★★★★☆</div>
+        <p>₹2,049</p>
+        <button class="wish" onclick="addWishlist('Laptop Backpack',2049)">❤️ Wishlist</button>
+        <button class="cart" onclick="addToCart('Laptop Backpack',2049)">🛒 Add Cart</button>
+        <button onclick="window.location.href='Laptop Backpack.html'">View Details</button>
+    </div>
+
+    <div class="card">
+         <span class="discount">10% OFF</span>
+        <img src="Images/Laptop Coolingpad.jpg">
+        <h3>Laptop Cooling Pad</h3>
+         <div class="rating">★★★★☆</div>
+        <p>₹1,299</p>
+        <button class="wish" onclick="addWishlist('Laptop Cooling Pad',1299)">❤️ Wishlist</button>
+        <button class="cart" onclick="addToCart('Laptop Cooling Pad',1299)">🛒 Add Cart</button>
+        <button onclick="window.location.href='Laptop coolingpad.html'">View Details</button>
+    </div>
+
+    <div class="card">
+         <span class="discount">10% OFF</span>
+        <img src="Images/USB C hub.jpg">
+        <h3>USB-C Hub</h3>
+         <div class="rating">★★★★☆</div>
+        <p>₹2,199</p>
+        <button class="wish" onclick="addWishlist('USB-C Hub',2199)">❤️ Wishlist</button>
+        <button class="cart" onclick="addToCart('USB-C Hub',2199)">🛒 Add Cart</button>
+        <button onclick="window.location.href='usb hub.html'">View Details</button>
+    </div>
+
+</div>
+<script>
+
+// Add To Cart
+function addToCart(name, price){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+        name: name,
+        price: Number(price),
+        quantity: 1
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(name + " added to Cart");
+
+}
+
+// Add To Wishlist
+function addWishlist(name, price){
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    wishlist.push({
+        name: name,
+        price: Number(price)
+    });
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+    alert(name + " added to Wishlist");
+
+}
+
+// Search Products
+function searchProduct(){
+
+    let input = document.getElementById("searchBox").value.toLowerCase();
+
+    let cards = document.getElementsByClassName("card");
+
+    for(let i=0;i<cards.length;i++){
+
+        let productName =
+            cards[i].getElementsByTagName("h3")[0].innerHTML.toLowerCase();
+
+        if(productName.includes(input)){
+
+            cards[i].style.display="block";
+
+        }
+        else{
+
+            cards[i].style.display="none";
+
+        }
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

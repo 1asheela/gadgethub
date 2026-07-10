@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile phone</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f5f5f5;
+      margin:20px;
+    }
+
+    .products{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .card{
+      width:200px;
+      background:white;
+      padding:15px;
+      border-radius:10px;
+      box-shadow:0 2px 5px gray;
+      text-align:center;
+    }
+
+    .card img{
+      width:150px;
+      height:150px;
+      object-fit:cover;
+    }
+
+    .card button{
+      padding:8px;
+      margin:5px;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+    
+  .discount{
+position:absolute;
+top:10px;
+left:10px;
+background:red;
+color:white;
+padding:4px 8px;
+font-size:13px;
+border-radius:5px;
+}
+
+.oldprice{
+    text-decoration:line-through;
+    color:gray;
+    font-size:18px;
+}
+ 
+
+.rating{
+color:orange;
+font-size:18px;
+margin:8px 0;
+}
+    .wish{
+background:#E91E63;
+color:white;
+}
+
+.cart{
+background:#1565C0;
+color:white;
+}
+  </style>
+
+</head>
+
+<body>
+   <div class="products">
+
+        <div class="card">
+            <span class="discount">20% OFF</span>
+            <img src="Images/typeccable.jpg" alt="USB Type-C Cable">
+            <h3>Type C Cable</h3>
+            <div class="rating">★★★★★</div>
+            <p class="old">₹3,999</p>
+            <p class="price">₹3,199</p>
+            <button class="wish" onclick="addWishlist('Type C Cable',3199)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Type C Cable',3199)">🛒 Add Cart</button>
+            <button onclick="window.location.href='typeccable.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">15% OFF</span>
+            <img src="Images/applecharger.jpg" alt="65W Fast Charger">
+            <h3>Apple 65W Fast Charger</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹1,999</p>
+            <p class="price">₹1,699</p>
+            <button class="wish" onclick="addWishlist('Apple 65W Fast Charger',1699)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Apple 65W Fast Charger',1699)">🛒 Add Cart</button>
+            <button onclick="window.location.href='applecharger.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">25% OFF</span>
+            <img src="Images/powerbank.jpg" alt="Power Bank">
+            <h3>20000mAh Power Bank</h3>
+            <div class="rating">★★★★★</div>
+            <p class="old">₹2,999</p>
+            <p class="price">₹2,249</p>
+            <button class="wish" onclick="addWishlist('20000mAh Power Bank',2249)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('20000mAh Power Bank',2249)">🛒 Add Cart</button>
+            <button onclick="window.location.href='powerbank.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">30% OFF</span>
+            <img src="Images/mobilecase.jpg" alt="Phone Case">
+            <h3>Premium Phone Case</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹999</p>
+            <p class="price">₹699</p>
+            <button class="wish" onclick="addWishlist('Premium Phone Case',699)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Premium Phone Case',699)">🛒 Add Cart</button>
+            <button onclick="window.location.href='mobilecase.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">35% OFF</span>
+            <img src="Images/screenguard.jpg" alt="Screen Protector">
+            <h3>Tempered Glass</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹499</p>
+            <p class="price">₹299</p>
+            <button class="wish" onclick="addWishlist('Tempered Glass',299)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Tempered Glass',299)">🛒 Add Cart</button>
+            <button onclick="window.location.href='screenguard.html'">View Details</button>
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+  function addToCart(name,price){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+      name:name,
+      price:price
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(name + " added to Cart");
+  }
+
+  function addWishlist(name,price){
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    wishlist.push({
+      name:name,
+      price:price
+    });
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+    alert(name + " added to Wishlist");
+  }
+
+</script>
+
+</body>
+</html>
+

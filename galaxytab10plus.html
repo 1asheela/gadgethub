@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Galaxy Tab S10+</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f6fb
+        }
+
+        header {
+            background: #0b3d91;
+            color: #fff;
+            text-align: center;
+            padding: 15px
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            padding: 30px
+        }
+
+        .left {
+            width: 45%
+        }
+
+        .left img {
+            width: 100%;
+            border: 1px solid #ccc
+        }
+
+        .thumbs img {
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+            cursor: pointer
+        }
+
+        .right {
+            flex: 1;
+            background: #fff;
+            padding: 20px
+        }
+
+        .price {
+            color: #d32f2f;
+            font-size: 28px
+        }
+
+        .old {
+            text-decoration: line-through;
+            color: #777
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px
+        }
+
+        .cart {
+            background: #ff9800
+        }
+
+        .wish {
+            background: #e91e63;
+            color: #fff
+        }
+
+        .buy {
+            background: #0b3d91;
+            color: #fff
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%
+        }
+
+        td {
+            border: 1px solid #ccc;
+            padding: 8px
+        }
+
+        .section {
+            background: #fff;
+            margin: 20px;
+            padding: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Galaxy Tab S10+</h1>
+    </header>
+    <div class="container">
+        <div class="left">
+            <img id="main" src="Images/galaxytab10plus.jpg">
+            <div class="thumbs">
+                <img src="Images/galaxytab10plus.jpg" onclick="main.src=this.src">
+                <img src="Images/galaxytab10plus 2.jpg" onclick="main.src=this.src">
+                <img src="Images/galaxytab10plus 3.jpg" onclick="main.src=this.src">
+            </div>
+        </div>
+        <div class="right">
+            <h2>Galaxy Tab S10+ (11-inch, 256GB)</h2>
+            <p>⭐⭐⭐⭐⭐ 4.9/5</p>
+            <p class="price">₹75,999 <span class="old">₹85,999</span></p>
+            <p>Quantity <button onclick="q(-1)">-</button> <span id="qty">1</span> <button onclick="q(1)">+</button></p>
+         
+            <button class="cart" onclick="alert('Added to Cart')">🛒 Add to Cart</button>
+            <button class="wish" onclick="alert('Added to Wishlist')">❤️ Wishlist</button>
+            <button class="buy" onclick="alert('Proceed to Checkout')">⚡ Buy Now</button>
+            <h3>Description</h3>
+            <p>Powerful Samsung Galaxy Tab S10+ with Snapdragon 8 Gen 2 chip, Dynamic AMOLED display and S Pen support.</p>
+            <table>
+                <tr>
+                    <td>Display</td>
+                    <td>11-inch Dynamic AMOLED</td>
+                </tr>
+                <tr>
+                    <td>Chip</td>
+                    <td>Snapdragon 8 Gen 2</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>256GB</td>
+                </tr>
+                <tr>
+                    <td>Camera</td>
+                    <td>12MP</td>
+                </tr>
+                <tr>
+                    <td>Battery</td>
+                    <td>Up to 10 hours</td>
+                </tr>
+            </table>
+            <p><b>Delivery:</b> Free delivery in 2 days.</p>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Customer Reviews</h2>
+        <p>⭐⭐⭐⭐⭐ Excellent performance and display.</p>
+    </div>
+    <div class="section">
+        <h2>Related Products</h2>
+        <ul>
+            <li>ipad airm 3</li>
+            <li>OnePlus Pad 2</li>
+            <li>Xiaomi Pad 7</li>
+        </ul>
+    </div>
+    <script>
+    let n = 1; function q(x) { n = Math.max(1, n + x); qty.innerText = n; }
+    </script>
+</body>
+
+</html>

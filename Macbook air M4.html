@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>MacBook Air M4</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6fb;
+            margin: 0
+        }
+
+        header {
+            background: #0b3d91;
+            color: #fff;
+            text-align: center;
+            padding: 15px
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            padding: 30px
+        }
+
+        .left {
+            width: 45%
+        }
+
+        .left img {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px
+        }
+
+        .thumbs img {
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+            cursor: pointer;
+            border: 1px solid #aaa
+        }
+
+        .right {
+            flex: 1;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px
+        }
+
+        .price {
+            font-size: 28px;
+            color: #d32f2f
+        }
+
+        .old {
+            text-decoration: line-through;
+            color: #777
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer
+        }
+
+        .cart {
+            background: #ff9800
+        }
+
+        .wish {
+            background: #e91e63;
+            color: #fff
+        }
+
+        .buy {
+            background: #0b3d91;
+            color: #fff
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 8px
+        }
+
+        .section {
+            background: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>MacBook Air M4</h1>
+    </header>
+    <div class='container'>
+        <div class='left'>
+            <img id='main' src='Images/macbookairm4.jpg'>
+            <div class='thumbs'>
+                <img src='Images/macbookairm4.jpg' onclick='main.src=this.src'>
+                <img src='Images/macbookairm4 2.jpg' onclick='main.src=this.src'>
+                <img src='Images/macbookairm4 3.jpg' onclick='main.src=this.src'>
+            </div>
+        </div>
+        <div class='right'>
+            <h2>Apple MacBook Air M4 (16GB RAM, 512GB SSD)</h2>
+            <p>⭐⭐⭐⭐⭐ 4.9/5</p>
+            <p class='price'>₹1,09,999 <span class='old'>₹1,19,999</span></p>
+            <p>Quantity <button onclick='q(-1)'>-</button> <span id='qty'>1</span> <button onclick='q(1)'>+</button></p>
+            
+      <button class="cart" onclick="alert('Added to Cart')">🛒 Add to Cart</button>
+      <button class="wish" onclick="alert('Added to Wishlist')">❤️ Wishlist</button>
+      <button class="buy" onclick="alert('Proceed to Checkout')">⚡ Buy Now</button>
+            <h3>Description</h3>
+            <p>Ultra-thin Apple MacBook Air powered by the M4 chip with exceptional battery life and Liquid Retina
+                display.</p>
+            <h3>Specifications</h3>
+            <table>
+                <tr>
+                    <td>Processor</td>
+                    <td>Apple M4</td>
+                </tr>
+                <tr>
+                    <td>RAM</td>
+                    <td>16GB Unified Memory</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>512GB SSD</td>
+                </tr>
+                <tr>
+                    <td>Display</td>
+                    <td>13.6-inch Liquid Retina</td>
+                </tr>
+                <tr>
+                    <td>OS</td>
+                    <td>macOS</td>
+                </tr>
+                <tr>
+                    <td>Battery</td>
+                    <td>Up to 18 Hours</td>
+                </tr>
+            </table>
+            <p><b>Delivery:</b> Free delivery within 2 days.</p>
+        </div>
+    </div>
+    <div class='section'>
+        <h2>Customer Reviews</h2>
+        <p>⭐⭐⭐⭐⭐ Amazing performance and battery life.</p>
+    </div>
+    <div class='section'>
+        <h2>Related Products</h2>
+        <ul>
+            <li>ASUS Vivobook 15</li>
+            <li>Dell Inspiron 15</li>
+            <li>HP Pavilion 15</li>
+        </ul>
+    </div>
+    <script>let n = 1; function q(x) { n = Math.max(1, n + x); document.getElementById('qty').innerText = n; }</script>
+</body>
+
+</html>

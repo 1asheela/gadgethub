@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile phone</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f5f5f5;
+      margin:20px;
+    }
+
+    .products{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .card{
+      width:200px;
+      background:white;
+      padding:15px;
+      border-radius:10px;
+      box-shadow:0 2px 5px gray;
+      text-align:center;
+    }
+
+    .card img{
+      width:150px;
+      height:150px;
+      object-fit:cover;
+    }
+
+    .card button{
+      padding:8px;
+      margin:5px;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+  
+ 
+.oldprice{
+    text-decoration:line-through;
+    color:gray;
+    font-size:18px;
+}
+ 
+.rating{
+color:orange;
+font-size:18px;
+margin:8px 0;
+}
+    .wish{
+background:#E91E63;
+color:white;
+}
+
+.cart{
+background:#1565C0;
+color:white;
+}
+  </style>
+
+</head>
+
+<body>
+   <div class="products">
+
+    <div class="card">
+         <span class="discount">10% OFF</span>
+        <img src="Images/Wireless Mouse.jpg">
+        <h3>Wireless Mouse</h3>
+         <div class="rating">★★★★☆</div>
+        <p>₹899</p>
+        <button class="wish" onclick="addWishlist('Wireless Mouse',899)">❤️ Wishlist</button>
+        <button class="cart" onclick="addToCart('Wireless Mouse',899)">🛒 Add Cart</button>
+        <button onclick="window.location.href='Wireless Mouse.html'">View Details</button>
+    </div>
+
+    <div class="card">
+         <span class="discount">10% OFF</span>
+        <img src="Images/Mechanical Keyboard.jpg">
+        <h3>Mechanical Keyboard</h3>
+         <div class="rating">★★★★☆</div>
+        <p>₹2,399</p>
+        <button class="wish" onclick="addWishlist('Mechanical Keyboard',2399)">❤️ Wishlist</button>
+        <button class="cart" onclick="addToCart('Mechanical Keyboard',2399)">🛒 Add Cart</button>
+       <button onclick="window.location.href='Mechanical Keyboard.html'">View Details</button> 
+    </div>
+
+    <div class="card">
+         <span class="discount">10% OFF</span>
+        <img src="Images/Laptop Backpack.jpg">
+        <h3>Laptop Backpack</h3>
+         <div class="rating">★★★★☆</div>
+        <p>₹2,049</p>
+        <button class="wish" onclick="addWishlist('Laptop Backpack',2049)">❤️ Wishlist</button>
+        <button class="cart" onclick="addToCart('Laptop Backpack',2049)">🛒 Add Cart</button>
+        <button onclick="window.location.href='Laptop Backpack.html'">View Details</button>
+    </div>
+
+    <div class="card">
+         <span class="discount">10% OFF</span>
+        <img src="Images/Laptop Coolingpad.jpg">
+        <h3>Laptop Cooling Pad</h3>
+         <div class="rating">★★★★☆</div>
+        <p>₹1,299</p>
+        <button class="wish" onclick="addWishlist('Laptop Cooling Pad',1299)">❤️ Wishlist</button>
+        <button class="cart" onclick="addToCart('Laptop Cooling Pad',1299)">🛒 Add Cart</button>
+        <button onclick="window.location.href='Laptop coolingpad.html'">View Details</button>
+    </div>
+
+    <div class="card">
+         <span class="discount">10% OFF</span>
+        <img src="Images/USB C hub.jpg">
+        <h3>USB-C Hub</h3>
+         <div class="rating">★★★★☆</div>
+        <p>₹2,199</p>
+        <button class="wish" onclick="addWishlist('USB-C Hub',2199)">❤️ Wishlist</button>
+        <button class="cart" onclick="addToCart('USB-C Hub',2199)">🛒 Add Cart</button>
+        <button onclick="window.location.href='usb hub.html'">View Details</button>
+    </div>
+
+</div>
+<script>
+
+    function addToCart(name,price){
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart.push({
+            name:name,
+            price:price
+        });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(name + " added to Cart");
+
+    }
+
+    function addWishlist(name,price){
+
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        wishlist.push({
+            name:name,
+            price:price
+        });
+
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+        alert(name + " added to Wishlist");
+
+    }
+
+
+</script>
+
+</body>
+</html>
+

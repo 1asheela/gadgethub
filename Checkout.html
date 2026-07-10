@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+
+    <style>
+        body{
+            font-family:Arial;
+            background:#f5f5f5;
+            margin:0;
+        }
+
+        header{
+            background:#2e7d32;
+            color:white;
+            padding:15px;
+            text-align:center;
+        }
+
+        .checkout-box{
+            width:500px;
+            margin:30px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 2px 5px gray;
+        }
+
+        input,textarea{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            box-sizing:border-box;
+        }
+
+        button{
+            width:100%;
+            padding:15px;
+            background:green;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#1b5e20;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Checkout</h1>
+</header>
+
+<div class="checkout-box">
+
+    <h2>Delivery Details</h2>
+
+    <input type="text" id="customerName" placeholder="Full Name">
+    <input type="text" id="mobile" placeholder="Mobile Number">
+    <input type="email" id="email" placeholder="Email Address">
+    <textarea id="address" rows="4" placeholder="Full Address"></textarea>
+    <input type="text" id="city" placeholder="City">
+    <input type="text" id="pincode" placeholder="Pincode">
+
+    <button onclick="continuePayment()">
+        Continue To Payment
+    </button>
+
+</div>
+
+<script>
+
+    function continuePayment(){
+
+        let customerName = document.getElementById("customerName").value;
+        let mobile = document.getElementById("mobile").value;
+        let email = document.getElementById("email").value;
+        let address = document.getElementById("address").value;
+        let city = document.getElementById("city").value;
+        let pincode = document.getElementById("pincode").value;
+
+        if(customerName=="" || mobile=="" || email=="" ||
+            address=="" || city=="" || pincode==""){
+            alert("Please fill all details");
+            return;
+        }
+
+        // ✅ CART + TOTAL DATA
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        let subtotal = localStorage.getItem("subtotal") || 0;
+        let gst = localStorage.getItem("gst") || 0;
+        let shipping = localStorage.getItem("shipping") || 0;
+        let grandTotal = localStorage.getItem("grandTotal") || 0;
+
+        // ✅ SAVE CUSTOMER DATA
+        localStorage.setItem("customerName", customerName);
+        localStorage.setItem("mobile", mobile);
+        localStorage.setItem("email", email);
+        localStorage.setItem("address", address);
+        localStorage.setItem("city", city);
+        localStorage.setItem("pincode", pincode);
+
+        // ✅ SAVE ORDER DATA
+        localStorage.setItem("orderCart", JSON.stringify(cart));
+        localStorage.setItem("subtotal", subtotal);
+        localStorage.setItem("gst", gst);
+        localStorage.setItem("shipping", shipping);
+        localStorage.setItem("grandTotal", grandTotal);
+
+        // go to order page
+        window.location.href = "payment.html";
+    }
+
+</script>
+
+</body>
+</html>

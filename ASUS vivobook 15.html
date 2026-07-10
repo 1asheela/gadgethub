@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ASUS Vivobook 15</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f6fb
+        }
+
+        header {
+            background: #0b3d91;
+            color: #fff;
+            padding: 15px;
+            text-align: center
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            padding: 30px
+        }
+
+        .left {
+            width: 45%
+        }
+
+        .left img {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px
+        }
+
+        .thumbs img {
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+            cursor: pointer;
+            border: 1px solid #aaa
+        }
+
+        .right {
+            flex: 1;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px
+        }
+
+        .price {
+            color: #d32f2f;
+            font-size: 28px
+        }
+
+        .old {
+            text-decoration: line-through;
+            color: #777
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer
+        }
+
+        .cart {
+            background: #ff9800
+        }
+
+        .wish {
+            background: #e91e63;
+            color: #fff
+        }
+
+        .buy {
+            background: #0b3d91;
+            color: #fff
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 8px
+        }
+
+        .section {
+            background: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ASUS Vivobook 15</h1>
+    </header>
+    <div class="container">
+        <div class="left">
+            <img id="main" src="Images/asusvivobook15.jpg">
+            <div class="thumbs">
+                <img src="Images/asusvivobook15.jpg" onclick="main.src=this.src">
+                <img src="Images/asusvivobook15 2.jpg" onclick="main.src=this.src">
+                <img src="Images/asusvivobook15 3.jpg" onclick="main.src=this.src">
+            </div>
+        </div>
+        <div class="right">
+            <h2>ASUS Vivobook 15 (Intel Core i5, 16GB RAM, 512GB SSD)</h2>
+            <p>⭐⭐⭐⭐⭐ 4.8/5</p>
+            <p class="price">₹59,999 <span class="old">₹66,999</span></p>
+            <p>Quantity <button onclick="chg(-1)">-</button> <span id="qty">1</span>
+                 <button onclick="chg(1)">+</button>
+            </p>
+         
+      <button class="cart" onclick="alert('Added to Cart')">🛒 Add to Cart</button>
+      <button class="wish" onclick="alert('Added to Wishlist')">❤️ Wishlist</button>
+      <button class="buy" onclick="alert('Proceed to Checkout')">⚡ Buy Now</button>
+            <h3>Description</h3>
+            <p>ASUS Vivobook 15 with Intel Core i5 13th Gen processor, 15.6-inch Full HD OLED display, 16GB RAM, 512GB
+                SSD, Windows 11 and long battery life.</p>
+            <h3>Specifications</h3>
+            <table>
+                <tr>
+                    <td>Processor</td>
+                    <td>Intel Core i5 13th Gen</td>
+                </tr>
+                <tr>
+                    <td>RAM</td>
+                    <td>16GB DDR4</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>512GB SSD</td>
+                </tr>
+                <tr>
+                    <td>Display</td>
+                    <td>15.6-inch FHD OLED</td>
+                </tr>
+                <tr>
+                    <td>Graphics</td>
+                    <td>Intel Iris Xe</td>
+                </tr>
+                <tr>
+                    <td>OS</td>
+                    <td>Windows 11 Home</td>
+                </tr>
+                <tr>
+                    <td>Battery</td>
+                    <td>Up to 8 Hours</td>
+                </tr>
+            </table>
+            <p><b>Delivery:</b> Free delivery within 2 days.</p>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Customer Reviews</h2>
+        <p>⭐⭐⭐⭐⭐ Excellent OLED display and lightweight design.</p>
+    </div>
+    <div class="section">
+        <h2>Related Products</h2>
+        <ul>
+            <li>Dell Inspiron 15</li>
+            <li>HP Pavilion 15</li>
+            <li>MacBook Air</li>
+        </ul>
+    </div>
+    <script>let q = 1; function chg(x) { q = Math.max(1, q + x); document.getElementById('qty').innerText = q; }</script>
+</body>
+
+</html>

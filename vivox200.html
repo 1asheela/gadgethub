@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vivo X200</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f6fb
+        }
+
+        header {
+            background: #0b3d91;
+            color: #fff;
+            text-align: center;
+            padding: 15px
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            padding: 30px
+        }
+
+        .left {
+            width: 45%
+        }
+
+        .left img {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px
+        }
+
+        .thumbs img {
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+            cursor: pointer;
+            border: 1px solid #aaa
+        }
+
+        .right {
+            flex: 1;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px
+        }
+
+        .price {
+            color: #d32f2f;
+            font-size: 28px
+        }
+
+        .old {
+            text-decoration: line-through;
+            color: #777
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer
+        }
+
+        .cart {
+            background: #ff9800
+        }
+
+        .wish {
+            background: #e91e63;
+            color: #fff
+        }
+
+        .buy {
+            background: #0b3d91;
+            color: #fff
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 8px
+        }
+
+        .section {
+            background: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Vivo X200</h1>
+    </header>
+    <div class="container">
+        <div class="left">
+            <img id="main" src="Images/vivox200.jpg">
+            <div class="thumbs">
+                <img src="Images/vivox200.jpg" onclick="main.src=this.src">
+                <img src="Images/vivox200 2.jpg" onclick="main.src=this.src">
+                <img src="Images/vivox200 3.jpg" onclick="main.src=this.src">
+            </div>
+        </div>
+        <div class="right">
+            <h2>Vivo X200 (256GB, 12GB RAM)</h2>
+            <p>⭐⭐⭐⭐⭐ 4.8/5</p>
+            <p class="price">₹65,999 <span class="old">₹72,999</span></p>
+            <p>Quantity <button onclick="chg(-1)">-</button> <span id="qty">1</span> <button onclick="chg(1)">+</button>
+            </p>
+           
+      <button class="cart" onclick="alert('Added to Cart')">🛒 Add to Cart</button>
+      <button class="wish" onclick="alert('Added to Wishlist')">❤️ Wishlist</button>
+      <button class="buy" onclick="alert('Proceed to Checkout')">⚡ Buy Now</button>
+            <h3>Description</h3>
+            <p>Premium Vivo flagship with ZEISS cameras, AMOLED display, flagship processor and ultra-fast charging.</p>
+            <h3>Specifications</h3>
+            <table>
+                <tr>
+                    <td>Display</td>
+                    <td>6.67-inch AMOLED 120Hz</td>
+                </tr>
+                <tr>
+                    <td>Processor</td>
+                    <td>MediaTek Dimensity</td>
+                </tr>
+                <tr>
+                    <td>RAM</td>
+                    <td>12GB</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>256GB</td>
+                </tr>
+                <tr>
+                    <td>Camera</td>
+                    <td>50MP Triple Camera</td>
+                </tr>
+                <tr>
+                    <td>Battery</td>
+                    <td>5800mAh</td>
+                </tr>
+            </table>
+            <p><b>Delivery:</b>Free delivery within 2 days.</p>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Customer Reviews</h2>
+        <p>⭐⭐⭐⭐⭐ Excellent camera quality and battery backup.</p>
+    </div>
+    <div class="section">
+        <h2>Related Products</h2>
+        <ul>
+            <li>Realme GT 7</li>
+            <li>OnePlus 13</li>
+            <li>Samsung Galaxy S24</li>
+        </ul>
+    </div>
+    <script>let q = 1; function chg(x) { q = Math.max(1, q + x); qty.innerText = q; }</script>
+</body>
+
+</html>

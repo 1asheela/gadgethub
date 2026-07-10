@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Xiaomi Pad 7</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f4f6f9;
+}
+
+header{
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+.container{
+    display:flex;
+    gap:40px;
+    padding:30px;
+}
+
+.left{
+    width:40%;
+}
+
+#mainImage{
+    width:100%;
+    height:420px;
+    object-fit:contain;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.gallery{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.gallery img{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+    border:2px solid #ddd;
+    border-radius:8px;
+    cursor:pointer;
+    background:white;
+}
+
+.gallery img:hover{
+    border-color:#0b3d91;
+}
+
+.right{
+    width:60%;
+}
+
+.right h1{
+    color:#0b3d91;
+}
+
+.rating{
+    color:#ff9800;
+    font-size:20px;
+}
+
+.price{
+    color:green;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.oldprice{
+    color:gray;
+    text-decoration:line-through;
+    font-size:18px;
+}
+
+.discount{
+    color:red;
+    font-weight:bold;
+}
+
+.qty{
+    margin:20px 0;
+}
+
+.qty button{
+    width:35px;
+    height:35px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.qty span{
+    margin:0 15px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    color:white;
+    margin:8px;
+}
+
+.cart{
+    background:#ff9800;
+}
+
+.wish{
+    background:#e91e63;
+}
+
+.buy{
+    background:#28a745;
+}
+
+.section{
+    background:white;
+    margin:25px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+.related{
+    display:flex;
+    gap:20px;
+}
+
+.related div{
+    width:180px;
+    text-align:center;
+}
+
+.related img{
+    width:150px;
+    height:150px;
+    object-fit:contain;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Xiaomi Pad 7</h1>
+</header>
+
+<div class="container">
+
+<div class="left">
+
+<img id="mainImage" src="Images/xiaomipad.jpg">
+
+<div class="gallery">
+<img src="Images/xiaomipad7.jpg" onclick="changeImage(this.src)">
+<img src="Images/xiaomipad 2.jpg" onclick="changeImage(this.src)">
+<img src="Images/xiaomipad 3.jpg" onclick="changeImage(this.src)">
+</div>
+
+</div>
+
+<div class="right">
+
+<h1>Xiaomi Pad 7 (8GB RAM, 256GB)</h1>
+
+<div class="rating">
+⭐⭐⭐⭐⭐ (4.7/5)
+</div>
+
+<p class="price">
+₹29,999
+<span class="oldprice">₹34,999</span>
+<span class="discount">14% OFF</span>
+</p>
+
+<p>
+The Xiaomi Pad 7 features a vibrant 11.2-inch 144Hz display, powerful Snapdragon processor, quad speakers with Dolby Atmos, and a long-lasting battery for work and entertainment.
+</p>
+
+<div class="qty">
+<h3>Quantity</h3>
+
+<button onclick="minus()">-</button>
+<span id="qty">1</span>
+<button onclick="plus()">+</button>
+
+</div>
+
+<button class="cart" onclick="addCart()">🛒 Add to Cart</button>
+<button class="wish" onclick="addWish()">❤️ Add to Wishlist</button>
+<button class="buy">⚡ Buy Now</button>
+
+</div>
+
+</div>
+
+<div class="section">
+<h2>Description</h2>
+
+<p>
+Enjoy smooth multitasking, gaming, streaming, and note-taking with the Xiaomi Pad 7. Its lightweight design, high-refresh-rate display, and powerful hardware make it ideal for students and professionals.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>Specifications</h2>
+
+<table>
+
+<tr><td>Brand</td><td>Xiaomi</td></tr>
+<tr><td>Model</td><td>Pad 7</td></tr>
+<tr><td>Display</td><td>11.2-inch 144Hz LCD</td></tr>
+<tr><td>Processor</td><td>Snapdragon 8s Gen 3</td></tr>
+<tr><td>RAM</td><td>8GB</td></tr>
+<tr><td>Storage</td><td>256GB</td></tr>
+<tr><td>Battery</td><td>8850mAh</td></tr>
+<tr><td>OS</td><td>HyperOS (Android)</td></tr>
+
+</table>
+
+</div>
+
+<div class="section">
+
+<h2>Delivery Details</h2>
+
+<p>
+✔ Free Delivery within 2 Days<br><br>
+✔ Cash on Delivery Available<br><br>
+✔ 7-Day Replacement Policy
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>Customer Reviews</h2>
+
+⭐⭐⭐⭐⭐ Excellent display quality.<br><br>
+⭐⭐⭐⭐⭐ Great value for money.<br><br>
+⭐⭐⭐⭐ Smooth performance and long battery life.
+
+</div>
+
+
+
+<script>
+
+function changeImage(img){
+    document.getElementById("mainImage").src=img;
+}
+
+let quantity=1;
+
+function plus(){
+    quantity++;
+    document.getElementById("qty").innerHTML=quantity;
+}
+
+function minus(){
+    if(quantity>1){
+        quantity--;
+        document.getElementById("qty").innerHTML=quantity;
+    }
+}
+
+function addCart(){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+cart.push({
+name:"Xiaomi Pad 7",
+price:29999,
+quantity:quantity
+});
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+alert("Xiaomi Pad 7 added to Cart");
+
+}
+
+function addWish(){
+
+let wishlist=JSON.parse(localStorage.getItem("wishlist"))||[];
+
+wishlist.push({
+name:"Xiaomi Pad 7",
+price:29999
+});
+
+localStorage.setItem("wishlist",JSON.stringify(wishlist));
+
+alert("Xiaomi Pad 7 added to Wishlist");
+
+}
+
+</script>
+
+</body>
+</html>

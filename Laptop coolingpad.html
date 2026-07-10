@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Laptop Cooling Pad</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f6fb;
+      margin: 0
+    }
+
+    header {
+      background: #0b3d91;
+      color: #fff;
+      text-align: center;
+      padding: 15px
+    }
+
+    .wrap {
+      display: flex;
+      gap: 30px;
+      padding: 30px
+    }
+
+    .left {
+      width: 45%
+    }
+
+    .left img {
+      width: 100%;
+      border: 1px solid #ccc
+    }
+
+    .thumbs img {
+      width: 70px;
+      height: 70px;
+      margin: 5px;
+      cursor: pointer
+    }
+
+    .right {
+      flex: 1;
+      background: #fff;
+      padding: 20px
+    }
+
+    .price {
+      color: #d32f2f;
+      font-size: 28px
+    }
+
+    .old {
+      text-decoration: line-through
+    }
+
+    button {
+      padding: 10px;
+      margin: 5px
+    }
+
+    .cart {
+      background: #ff9800
+    }
+
+    .wish {
+      background: #e91e63;
+      color: #fff
+    }
+
+    .buy {
+      background: #0b3d91;
+      color: #fff
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%
+    }
+
+    td {
+      border: 1px solid #ddd;
+      padding: 8px
+    }
+
+    .sec {
+      background: #fff;
+      margin: 20px;
+      padding: 20px
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Laptop Cooling Pad</h1>
+  </header>
+  <div class="wrap">
+    <div class="left">
+      <img id="main" src="Images/laptop coolingpad.jpg">
+
+    
+    </div>
+    <div class="right">
+      <h2>Laptop Cooling Pad</h2>
+      <p>⭐⭐⭐⭐⭐ 4.8/5</p>
+      <p class="price">₹1,299<span class="old">₹1,599</span></p>
+      <p>Qty <button onclick="f(-1)">-</button>
+        <span id="q">1</span>
+        <button onclick="f(1)">+</button>
+      </p>
+      <button class="cart" onclick="alert('Added to Cart')">🛒 Add to Cart</button>
+      <button class="wish" onclick="alert('Added to Wishlist')">❤️ Wishlist</button>
+      <button class="buy" onclick="alert('Proceed to Checkout')">⚡ Buy Now</button>
+      <h3>Description</h3>
+      <p>A portable laptop cooling pad that helps keep your laptop at an optimal temperature during use.</p>
+      <table>
+        <tr>
+          <td></td>
+          <td>Consumes less power than 2.4 GHz, extending battery life</td>
+        </tr>
+        
+        <tr>
+          <td>Durability</td>
+          <td>Mechanical switches are rated for 20 to over 100 million keystrokes, drastically outlasting traditional membrane keyboards</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="sec">
+    <h2>Reviews</h2>
+    <p>⭐⭐⭐⭐⭐ Excellent performance.</p>
+  </div>
+  <script>
+    let n = 1;
+    function f(x) {
+      n = Math.max(1, n + x);
+      q.innerText = n;
+    }
+  </script>
+</body>
+
+</html>

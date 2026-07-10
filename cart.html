@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FreshKart | My Cart</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f1f3f6;
+}
+
+/* HEADER */
+
+header{
+    background:#2874f0;
+    color:white;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:yellow;
+}
+
+.icons{
+    display:flex;
+    gap:25px;
+    font-size:18px;
+}
+
+.icons a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.icons a:hover{
+    color:yellow;
+}
+
+/* MAIN */
+
+.main{
+    width:95%;
+    margin:25px auto;
+    display:flex;
+    gap:25px;
+}
+
+/* LEFT */
+
+.left{
+    width:70%;
+}
+
+/* CART CARD */
+
+.cart-card{
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.product{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.product img{
+    width:130px;
+    height:130px;
+    object-fit:contain;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.details h2{
+    color:#222;
+    margin-bottom:10px;
+}
+
+.details p{
+    color:gray;
+    margin:6px 0;
+    font-size:15px;
+}
+
+.price{
+    color:green;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.qty{
+
+display:flex;
+align-items:center;
+gap:12px;
+margin-top:15px;
+
+}
+
+.qty button{
+
+width:35px;
+height:35px;
+border:none;
+background:#2874f0;
+color:white;
+font-size:20px;
+border-radius:50%;
+cursor:pointer;
+
+}
+
+.qty span{
+
+font-size:20px;
+font-weight:bold;
+
+}
+
+.actions{
+
+display:flex;
+flex-direction:column;
+gap:15px;
+
+}
+
+.btn{
+
+padding:10px 20px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:15px;
+color:white;
+
+}
+
+.remove{
+
+background:red;
+
+}
+
+.save{
+
+background:#ff9800;
+
+}
+
+/* RIGHT SIDE */
+
+.right{
+
+width:30%;
+
+}
+
+.summary{
+
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+position:sticky;
+top:20px;
+
+}
+
+.summary h2{
+
+margin-bottom:20px;
+color:#2874f0;
+
+}
+
+.summary p{
+
+display:flex;
+justify-content:space-between;
+margin:15px 0;
+font-size:18px;
+
+}
+
+.summary hr{
+
+margin:20px 0;
+
+}
+
+.total{
+
+font-size:24px;
+font-weight:bold;
+color:green;
+
+}
+/* COUPON */
+
+.coupon{
+
+margin-top:25px;
+
+}
+
+.coupon input{
+
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:5px;
+margin-bottom:10px;
+
+}
+
+.apply{
+
+width:100%;
+padding:12px;
+background:#ff9800;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+
+}
+
+.checkout{
+
+width:100%;
+padding:15px;
+margin-top:20px;
+background:green;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-size:18px;
+
+}
+
+.home{
+
+width:100%;
+padding:15px;
+margin-top:15px;
+background:#2874f0;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-size:18px;
+
+}
+
+.empty{
+
+background:white;
+padding:50px;
+text-align:center;
+font-size:28px;
+border-radius:10px;
+color:gray;
+
+}
+
+footer{
+
+margin-top:40px;
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+
+}
+
+@media(max-width:900px){
+
+.main{
+
+flex-direction:column;
+
+}
+
+.left,
+.right{
+
+width:100%;
+
+}
+
+.cart-card{
+
+flex-direction:column;
+text-align:center;
+
+}
+
+.product{
+
+flex-direction:column;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+⚡ ElectroMart Products
+
+</header>
+
+<div class="main">
+
+<div class="left" id="cartContainer">
+
+<!-- Products will be loaded here -->
+
+</div>
+
+<div class="right">
+
+<div class="summary">
+
+<h2>Order Summary</h2>
+
+<div id="summaryData"></div>
+
+<div class="coupon">
+
+<input
+type="text"
+placeholder="Enter Coupon Code">
+
+<button class="apply">
+Apply Coupon
+</button>
+
+</div>
+
+<button
+class="checkout"
+onclick="location.href='Checkout.html'">
+
+Proceed To Checkout
+
+</button>
+
+<button
+class="home"
+onclick="location.href='Home.html'">
+
+Continue Shopping
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 FreshKart | Fast Delivery | Secure Shopping
+
+</footer>
+
+<script>
+    // Load Cart
+function loadCart(){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let cartContainer = document.getElementById("cartContainer");
+    let summary = document.getElementById("summaryData");
+
+    cartContainer.innerHTML = "";
+
+    if(cart.length === 0){
+
+        cartContainer.innerHTML = `
+        <div class="empty">
+            🛒 Your Cart is Empty
+        </div>
+        `;
+
+        summary.innerHTML = `
+        <p><span>Subtotal</span><span>₹0</span></p>
+        <p><span>GST (18%)</span><span>₹0</span></p>
+        <p><span>Shipping</span><span>₹0</span></p>
+        <hr>
+        <p class="total"><span>Total</span><span>₹0</span></p>
+        `;
+
+        return;
+    }
+
+    let subtotal = 0;
+
+    cart.forEach((item,index)=>{
+
+        if(!item.quantity){
+            item.quantity = 1;
+        }
+
+        subtotal += item.price * item.quantity;
+
+        cartContainer.innerHTML += `
+
+<div class="cart-card">
+
+<div class="product">
+
+<img src="${item.image || 'image/noimage.png'}">
+
+<div class="details">
+
+<h2>${item.name}</h2>
+
+<p>Premium Product</p>
+
+<p class="price">₹${item.price}</p>
+
+<div class="qty">
+
+<button onclick="decreaseQty(${index})">-</button>
+
+<span>${item.quantity}</span>
+
+<button onclick="increaseQty(${index})">+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="btn remove"
+onclick="removeItem(${index})">
+
+🗑 Remove
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+    });
+
+    let gst = subtotal * 0.18;
+    let shipping = subtotal > 0 ? 30 : 0;
+    let total = subtotal + gst + shipping;
+
+    summary.innerHTML = `
+
+<p><span>Subtotal</span><span>₹${subtotal.toFixed(2)}</span></p>
+
+<p><span>GST (18%)</span><span>₹${gst.toFixed(2)}</span></p>
+
+<p><span>Shipping</span><span>₹${shipping.toFixed(2)}</span></p>
+
+<hr>
+
+<p class="total">
+
+<span>Total</span>
+
+<span>₹${total.toFixed(2)}</span>
+
+</p>
+
+`;
+
+}
+// Increase Quantity
+function increaseQty(index){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart[index].quantity++;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    loadCart();
+}
+
+
+// Decrease Quantity
+function decreaseQty(index){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if(cart[index].quantity > 1){
+
+        cart[index].quantity--;
+
+    }else{
+
+        if(confirm("Remove this item from cart?")){
+
+            cart.splice(index,1);
+
+        }
+
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    loadCart();
+
+}
+
+
+// Remove Item
+function removeItem(index){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if(confirm("Are you sure you want to remove this item?")){
+
+        cart.splice(index,1);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        loadCart();
+
+    }
+
+}
+
+
+// Clear Cart (Optional)
+function clearCart(){
+
+    if(confirm("Clear all items from cart?")){
+
+        localStorage.removeItem("cart");
+
+        loadCart();
+
+    }
+
+}
+
+
+// Apply Coupon (Demo)
+function applyCoupon(){
+
+    let coupon = document.querySelector(".coupon input").value.trim();
+
+    if(coupon.toUpperCase() === "ELECTRO10"){
+
+        alert("Coupon applied successfully!");
+
+    }else if(coupon === ""){
+
+        alert("Please enter a coupon code.");
+
+    }else{
+
+        alert("Invalid coupon code.");
+
+    }
+
+}
+
+
+// Connect Apply Coupon button
+document.querySelector(".apply").addEventListener("click", applyCoupon);
+
+
+// Load cart when page opens
+window.onload = loadCart;
+
+</script>
+
+</body>
+</html>

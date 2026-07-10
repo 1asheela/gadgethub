@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Payment</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#f5f5f5;
+        }
+
+        header{
+            background:#2e7d32;
+            color:white;
+            text-align:center;
+            padding:20px;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .payment-box{
+
+            width:500px;
+
+            margin:40px auto;
+
+            background:white;
+
+            padding:30px;
+
+            border-radius:10px;
+
+            box-shadow:0 2px 10px gray;
+
+        }
+
+        .payment-box h2{
+
+            text-align:center;
+
+            margin-bottom:20px;
+
+            color:#2e7d32;
+
+        }
+
+        .payment-option{
+
+            margin:15px 0;
+
+            font-size:18px;
+
+        }
+
+        .payment-option input{
+
+            margin-right:10px;
+
+        }
+
+        #paymentFields{
+
+            margin-top:20px;
+
+        }
+
+        input[type=text],
+        input[type=password]{
+
+            width:100%;
+
+            padding:12px;
+
+            margin-top:10px;
+
+            border:1px solid #ccc;
+
+            border-radius:5px;
+
+            font-size:16px;
+
+        }
+
+        button{
+
+            width:100%;
+
+            padding:15px;
+
+            margin-top:25px;
+
+            background:#2e7d32;
+
+            color:white;
+
+            border:none;
+
+            border-radius:5px;
+
+            font-size:18px;
+
+            cursor:pointer;
+
+        }
+
+        button:hover{
+
+            background:#1b5e20;
+
+        }
+
+        .back{
+
+            background:#2196F3;
+
+            margin-top:15px;
+
+        }
+
+        .back:hover{
+
+            background:#1565c0;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    Payment Gateway
+
+</header>
+
+<div class="payment-box">
+
+    <h2>Select Payment Method</h2>
+
+    <div class="payment-option">
+
+        <input
+                type="radio"
+                name="payment"
+                value="UPI"
+                onclick="showPaymentFields()">
+
+        UPI
+
+    </div>
+
+    <div class="payment-option">
+
+        <input
+                type="radio"
+                name="payment"
+                value="CARD"
+                onclick="showPaymentFields()">
+
+        Credit / Debit Card
+
+    </div>
+
+    <div class="payment-option">
+
+        <input
+                type="radio"
+                name="payment"
+                value="COD"
+                onclick="showPaymentFields()">
+
+        Cash On Delivery
+
+    </div>
+
+    <div id="paymentFields"></div>
+
+    <button onclick="placeOrder()">
+
+        Place Order
+
+    </button>
+
+    <button class="back"
+
+            onclick="window.location.href='Checkout.html'">
+
+        Back
+
+    </button>
+
+</div> <script>
+
+    function showPaymentFields(){
+
+        let payment=document.querySelector('input[name="payment"]:checked').value;
+
+        let fields=document.getElementById("paymentFields");
+
+        if(payment=="UPI"){
+
+            fields.innerHTML=`
+
+<input
+type="text"
+id="upi"
+placeholder="Enter UPI ID">
+
+`;
+
+        }
+
+        else if(payment=="CARD"){
+
+            fields.innerHTML=`
+
+<input
+type="text"
+id="card"
+placeholder="Card Number">
+
+<input
+type="password"
+id="cvv"
+placeholder="CVV">
+
+<input
+type="text"
+id="expiry"
+placeholder="MM/YY">
+
+`;
+
+        }
+
+        else{
+
+            fields.innerHTML="";
+
+        }
+
+    }
+
+    async function placeOrder() {
+
+        let payment = document.querySelector('input[name="payment"]:checked');
+
+        if (!payment) {
+            alert("Please Select Payment Method");
+            return;
+        }
+
+        let cart = JSON.parse(localStorage.getItem("orderCart")) || [];
+
+        if (cart.length === 0) {
+            alert("Cart is Empty");
+            return;
+        }
+
+        let customerName = localStorage.getItem("customerName");
+        let email = localStorage.getItem("email");
+        let mobile = localStorage.getItem("mobile");
+
+        let address =
+            (localStorage.getItem("address") || "") + ", " +
+            (localStorage.getItem("city") || "") + " - " +
+            (localStorage.getItem("pincode") || "");
+
+        try {
+
+            for (let item of cart) {
+
+                let order = {
+
+                    customerName: customerName,
+
+                    email: email,
+
+                    mobile: mobile,
+
+                    address: address,
+
+                    productName: item.productName || item.name,
+
+                    quantity: Number(item.quantity || 1),
+
+                    price: Number(item.price || 0),
+
+                    total: Number(item.price || 0) * Number(item.quantity || 1),
+
+                    paymentMethod: payment.value,
+
+                    status: "Pending"
+                };
+
+                console.log("Sending Order:", order);
+
+                let response = await fetch("http://localhost:8081/orders", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(order)
+                });
+
+                if (!response.ok) {
+                    let error = await response.text();
+                    console.log("Server Error:", error);
+                    alert(error);
+                    return;
+                }
+            }
+
+            localStorage.setItem("lastOrderCart", JSON.stringify(cart));
+            localStorage.setItem("lastSubtotal", localStorage.getItem("subtotal"));
+            localStorage.setItem("lastGST", localStorage.getItem("gst"));
+            localStorage.setItem("lastShipping", localStorage.getItem("shipping"));
+            localStorage.setItem("lastGrandTotal", localStorage.getItem("grandTotal"));
+            localStorage.setItem("paymentMethod", payment.value);
+
+            localStorage.removeItem("cart");
+            localStorage.removeItem("orderCart");
+
+            alert("Order Placed Successfully");
+
+            window.location.href = "ordersuccess.html";
+
+        } catch (e) {
+
+            console.log(e);
+
+            alert("Unable To Place Order");
+        }
+
+    }async function placeOrder() {
+
+        let payment = document.querySelector('input[name="payment"]:checked');
+
+        if (!payment) {
+            alert("Please Select Payment Method");
+            return;
+        }
+
+        let cart = JSON.parse(localStorage.getItem("orderCart")) || [];
+
+        if (cart.length === 0) {
+            alert("Cart is Empty");
+            return;
+        }
+
+        let customerName = localStorage.getItem("customerName");
+        let email = localStorage.getItem("email");
+        let mobile = localStorage.getItem("mobile");
+
+        let address =
+            (localStorage.getItem("address") || "") + ", " +
+            (localStorage.getItem("city") || "") + " - " +
+            (localStorage.getItem("pincode") || "");
+
+        try {
+
+            for (let item of cart) {
+
+                let order = {
+
+                    customerName: customerName,
+
+                    email: email,
+
+                    mobile: mobile,
+
+                    address: address,
+
+                    productName: item.productName || item.name,
+
+                    quantity: Number(item.quantity || 1),
+
+                    price: Number(item.price || 0),
+
+                    total: Number(item.price || 0) * Number(item.quantity || 1),
+
+                    paymentMethod: payment.value,
+
+                    status: "Pending"
+                };
+
+                console.log("Sending Order:", order);
+
+                let response = await fetch("http://localhost:8081/orders", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(order)
+                });
+
+                if (!response.ok) {
+                    let error = await response.text();
+                    console.log("Server Error:", error);
+                    alert(error);
+                    return;
+                }
+            }
+
+            localStorage.setItem("lastOrderCart", JSON.stringify(cart));
+            localStorage.setItem("lastSubtotal", localStorage.getItem("subtotal"));
+            localStorage.setItem("lastGST", localStorage.getItem("gst"));
+            localStorage.setItem("lastShipping", localStorage.getItem("shipping"));
+            localStorage.setItem("lastGrandTotal", localStorage.getItem("grandTotal"));
+            localStorage.setItem("paymentMethod", payment.value);
+
+            localStorage.removeItem("cart");
+            localStorage.removeItem("orderCart");
+
+            alert("Order Placed Successfully");
+
+            window.location.href = "ordersuccess.html";
+
+        } catch (e) {
+
+            console.log(e);
+
+            alert("Unable To Place Order");
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

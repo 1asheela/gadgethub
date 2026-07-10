@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile phone</title>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f5f5f5;
+      margin:20px;
+    }
+
+    .products{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .card{
+      width:200px;
+      background:white;
+      padding:15px;
+      border-radius:10px;
+      box-shadow:0 2px 5px gray;
+      text-align:center;
+    }
+
+    .card img{
+      width:150px;
+      height:150px;
+      object-fit:cover;
+    }
+
+    .card button{
+      padding:8px;
+      margin:5px;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+  
+.oldprice{
+    text-decoration:line-through;
+    color:gray;
+    font-size:18px;
+}
+ 
+
+.rating{
+color:orange;
+font-size:18px;
+margin:8px 0;
+}
+    .wish{
+background:#E91E63;
+color:white;
+}
+
+.cart{
+background:#1565C0;
+color:white;
+}
+  </style>
+
+</head>
+
+<body>
+
+<div class="category">
+
+    <h2>📟 Tablets</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <span class="discount">10% OFF</span>
+            <img src="Images/ipad airm m3.jpg" alt="iPad Air">
+            <h3>Apple iPad Air</h3>
+            <div class="rating">★★★★★</div>
+            <p class="old">₹64,999</p>
+            <p class="price">₹58,499</p>
+            <button class="wish" onclick="addWishlist('Apple iPad Air',58499)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Apple iPad Air',58499)">🛒 Add Cart</button>
+            <button onclick="window.location.href='ipadairm3.html'">View Details</button>
+        </div>
+
+        <div class="card">
+            <span class="discount">12% OFF</span>
+            <img src="Images/galaxytab10plus.jpg" alt="Samsung Galaxy Tab S10">
+            <h3>Samsung Galaxy Tab S10</h3>
+            <div class="rating">★★★★★</div>
+            <p class="old">₹72,999</p>
+            <p class="price">₹64,199</p>
+            <button class="wish" onclick="addWishlist('Samsung Galaxy Tab S10',64199)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Samsung Galaxy Tab S10',64199)">🛒 Add Cart</button>
+            <button onclick="window.location.href='galaxytab10plus.html'">View Details</button>
+            
+    </div>
+        </div>
+
+        <div class="card">
+            <span class="discount">15% OFF</span>
+            <img src="Images/onepluspad2.jpg" alt="OnePlus Pad 2">
+            <h3>OnePlus Pad 2</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹42,999</p>
+            <p class="price">₹36,499</p>
+            <button class="wish" onclick="addWishlist('OnePlus Pad 2',36499)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('OnePlus Pad 2',36499)">🛒 Add Cart</button>
+            <button onclick="window.location.href='onepluspad2.html'">View Details</button>
+    </div>
+        </div>
+
+        <div class="card">
+            <span class="discount">18% OFF</span>
+            <img src="Images/lenovo tab12.jpg" alt="Lenovo Tab P12">
+            <h3>Lenovo Tab P12</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹34,999</p>
+            <p class="price">₹28,699</p>
+            <button class="wish" onclick="addWishlist('Lenovo Tab P12',28699)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Lenovo Tab P12',28699)">🛒 Add Cart</button>
+            <button onclick="window.location.href='lenovotab12.html'">View Details</button>
+    </div>
+        </div>
+
+        <div class="card">
+            <span class="discount">20% OFF</span>
+            <img src="Images/xiaomipad.jpg" alt="Xiaomi Pad 7">
+            <h3>Xiaomi Pad 7</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="old">₹32,999</p>
+            <p class="price">₹26,399</p>
+            <button class="wish" onclick="addWishlist('Xiaomi Pad 7',26399)">❤️ Wishlist</button>
+            <button class="cart" onclick="addToCart('Xiaomi Pad 7',26399)">🛒 Add Cart</button>
+            <button onclick="window.location.href='xiaomipad.html'">View Details</button>
+    </div>
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+  function addToCart(name,price){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+      name:name,
+      price:price
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(name + " added to Cart");
+  }
+
+  function addWishlist(name,price){
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    wishlist.push({
+      name:name,
+      price:price
+    });
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+    alert(name + " added to Wishlist");
+  }
+
+</script>
+
+</body>
+</html>
+

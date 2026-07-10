@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tempered Glass Screen Protector</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f4f6f9;
+}
+
+header{
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+.container{
+    display:flex;
+    gap:40px;
+    padding:30px;
+}
+
+.left{
+    width:40%;
+}
+
+#mainImage{
+    width:100%;
+    height:420px;
+    object-fit:contain;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.gallery{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.gallery img{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+    border:2px solid #ddd;
+    border-radius:8px;
+    cursor:pointer;
+    background:white;
+}
+
+.gallery img:hover{
+    border-color:#0b3d91;
+}
+
+.right{
+    width:60%;
+}
+
+.right h1{
+    color:#0b3d91;
+}
+
+.rating{
+    color:#ff9800;
+    font-size:20px;
+}
+
+.price{
+    color:green;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.oldprice{
+    color:gray;
+    text-decoration:line-through;
+    font-size:18px;
+}
+
+.discount{
+    color:red;
+    font-weight:bold;
+}
+
+.qty{
+    margin:20px 0;
+}
+
+.qty button{
+    width:35px;
+    height:35px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.qty span{
+    margin:0 15px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    color:white;
+    margin:8px;
+}
+
+.cart{
+    background:#ff9800;
+}
+
+.wish{
+    background:#e91e63;
+}
+
+.buy{
+    background:#28a745;
+}
+
+.section{
+    background:white;
+    margin:25px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+.related{
+    display:flex;
+    gap:20px;
+}
+
+.related div{
+    width:180px;
+    text-align:center;
+}
+
+.related img{
+    width:150px;
+    height:150px;
+    object-fit:contain;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Tempered Glass Screen Protector</h1>
+</header>
+
+<div class="container">
+
+<div class="left">
+
+<img id="mainImage" src="Images/screenguard.jpg">
+
+
+</div>
+
+<div class="right">
+
+<h1>9H Tempered Glass Screen Protector</h1>
+
+<div class="rating">
+⭐⭐⭐⭐⭐ (4.7/5)
+</div>
+
+<p class="price">
+₹399
+<span class="oldprice">₹699</span>
+<span class="discount">43% OFF</span>
+</p>
+
+<p>
+Premium 9H hardness tempered glass with anti-scratch, anti-fingerprint coating, HD clarity, and bubble-free installation for smartphones.
+</p>
+
+<div class="qty">
+
+<h3>Quantity</h3>
+
+<button onclick="minus()">-</button>
+
+<span id="qty">1</span>
+
+<button onclick="plus()">+</button>
+
+</div>
+
+<button class="cart" onclick="addCart()">🛒 Add to Cart</button>
+
+<button class="wish" onclick="addWish()">❤️ Add to Wishlist</button>
+
+<button class="buy">⚡ Buy Now</button>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Description</h2>
+
+<p>
+Protect your smartphone display with this premium tempered glass. It provides excellent scratch resistance, smooth touch sensitivity, crystal-clear display quality, and easy installation without bubbles.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>Specifications</h2>
+
+<table>
+
+<tr><td>Material</td><td>Tempered Glass</td></tr>
+<tr><td>Hardness</td><td>9H</td></tr>
+<tr><td>Thickness</td><td>0.33 mm</td></tr>
+<tr><td>Finish</td><td>HD Clear</td></tr>
+<tr><td>Features</td><td>Anti-Scratch, Anti-Fingerprint</td></tr>
+<tr><td>Compatibility</td><td>Most Smartphones</td></tr>
+
+</table>
+
+</div>
+
+<div class="section">
+
+<h2>Delivery Details</h2>
+
+<p>
+
+✔ Free Delivery<br><br>
+
+✔ Cash on Delivery Available<br><br>
+
+✔ 7-Day Replacement
+
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>Customer Reviews</h2>
+
+⭐⭐⭐⭐⭐ Easy to install.<br><br>
+
+⭐⭐⭐⭐⭐ Excellent protection.<br><br>
+
+⭐⭐⭐⭐ Good touch response.
+
+</div>
+
+
+
+<script>
+
+function changeImage(img){
+    document.getElementById("mainImage").src = img;
+}
+
+let quantity = 1;
+
+function plus(){
+    quantity++;
+    document.getElementById("qty").innerHTML = quantity;
+}
+
+function minus(){
+    if(quantity > 1){
+        quantity--;
+        document.getElementById("qty").innerHTML = quantity;
+    }
+}
+
+function addCart(){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+        name:"Tempered Glass Screen Protector",
+        price:399,
+        quantity:quantity
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("Tempered Glass added to Cart");
+}
+
+function addWish(){
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    wishlist.push({
+        name:"Tempered Glass Screen Protector",
+        price:399
+    });
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+    alert("Tempered Glass added to Wishlist");
+}
+
+</script>
+
+</body>
+</html>
